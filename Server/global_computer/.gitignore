@@ -1,0 +1,11 @@
+*.env
+*.sqlite3
+media
+env
+*.env.*
+*.sock
+staticfiles_build
+account/migrations
+global_computer_api/migrations
+account/__pycache__
+global_computer_api/__pycache__
