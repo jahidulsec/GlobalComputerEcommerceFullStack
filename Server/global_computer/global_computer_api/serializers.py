@@ -23,9 +23,12 @@ class BrandSerializer(serializers.ModelSerializer):
 
 # category
 class CategorySerializer(serializers.ModelSerializer):
+    parent_category = serializers.StringRelatedField(read_only=True)
+    parent_category_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Category
-        fields = ['id', 'slug', 'title']
+        fields = ['id', 'slug', 'title', 'parent_category_id', 'parent_category']
+        extra_kwargs = {'parent_category_id': {'required': False}}
 
 
 

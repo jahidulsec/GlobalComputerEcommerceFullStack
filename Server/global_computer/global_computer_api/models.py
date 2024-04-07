@@ -13,6 +13,7 @@ User = get_user_model()
 class Category(models.Model):
     slug = models.SlugField(max_length=255, null=True)
     title = models.CharField(max_length=255, db_index=True, unique=True)
+    parent_category = models.ForeignKey('self', models.CASCADE, default=None, null=True, blank=True)
 
     def __str__(self) -> str:
         return self.slug
