@@ -80,6 +80,7 @@ const CategoryTable = () => {
                     <tr>
                         <th>Slug</th>
                         <th>Title</th>
+                        <th>Parent Category</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -97,6 +98,7 @@ const CategoryTable = () => {
                                     </Link>
                                 </td>
                                 <td data-label='Title'>{item.title}</td>
+                                <td data-label='Parent Category'>{item.parent_category || `None`}</td>
                                 <td data-label='Delete'>
                                     <ButtonClose onClick={() => {handleDelCategory(`category`, item.slug, auth)}} />
                                 </td>
