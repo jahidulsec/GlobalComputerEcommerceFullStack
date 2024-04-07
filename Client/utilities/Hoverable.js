@@ -71,7 +71,7 @@ const Hoverable = ({
                 </button>
             </li>
             <li>
-                <CopyToClipboard text={`https://globalcomputer.com.bd/product/` + product.slug} >
+                <CopyToClipboard text={`https://globalcomputer.com.bd/product/` + product?.slug} >
                     <button type='button' title='Share Link' onClick={() => {setCopy(true)}} >
                         <i className="ri-share-forward-line"></i>
                     </button>

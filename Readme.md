@@ -31,6 +31,7 @@
 - [x] Login page  
 - [x] Register page  
 - [x] Fully Functional API with authentication, authorization
+- [] Payment Method
 
 
 

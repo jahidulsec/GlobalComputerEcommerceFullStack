@@ -16,7 +16,7 @@ const BigTrendingCard = ({
     <div className="row products big">
         <div className="item">
         {
-            product.offered_time &&
+            product?.offered_time &&
             (new Date(product.offered_time). getFullYear()) == (new Date().getFullYear()) &&
             (new Date(product.offered_time). getMonth()) == (new Date().getMonth()) &&
             (new Date(product.offered_time). getDate() + 1) > (new Date().getDate()) &&
@@ -26,10 +26,10 @@ const BigTrendingCard = ({
             
             <div className="media">
                 <div className="image">
-                    <Link href={`/product/${product.slug}`}>
+                    <Link href={`/product/${product?.slug}`}>
                         <Image 
                             src={product?.images[0].image} 
-                            alt={product.title} 
+                            alt={product?.title} 
                             width={250} 
                             height={250}
                             sizes='max-width: 280px'
@@ -45,7 +45,7 @@ const BigTrendingCard = ({
 
                 {
                     product && product.is_stock &&
-                        <div className="discount circle flexcenter"><span>{product.discount}%</span></div>
+                        <div className="discount circle flexcenter"><span>{product?.discount}%</span></div>
                 }
             </div>
             <div className="content">
@@ -54,11 +54,11 @@ const BigTrendingCard = ({
                     <span className="mini-text">({product?.count_review})</span>
                 </div>
                 <h3 className='main-link'>
-                    <Link href={`/product/${product.slug}`}>{product.title}</Link>
+                    <Link href={`/product/${product?.slug}`}>{product?.title}</Link>
                 </h3>
                 <div className="price">
-                    <span className="current">{currencyFormat(product.price)}</span>
-                    <span className="normal mini-text">{currencyFormat(product.prev_price)}</span>
+                    <span className="current">{currencyFormat(product?.price)}</span>
+                    <span className="normal mini-text">{currencyFormat(product?.prev_price)}</span>
                 </div>
                 {
                     product && product.is_stock &&
