@@ -24,11 +24,24 @@ class BrandSerializer(serializers.ModelSerializer):
 # category
 class CategorySerializer(serializers.ModelSerializer):
     parent_category = serializers.StringRelatedField(read_only=True)
-    parent_category_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Category
-        fields = ['id', 'slug', 'title', 'parent_category_id', 'parent_category']
-        extra_kwargs = {'parent_category_id': {'required': False}}
+        fields = ['id', 'slug', 'title', 'parent_category']
+
+
+    def create(self, validated_data):
+        if (validated_data.get("parent_category_id")):
+            category = Category.objects.get(id = validated_data.get("parent_catgory_id"))
+            new = Category.objects.create(
+                title = validated_data.get('title'),
+                parent_category = category
+            )
+        else:
+            new = Category.objects.create(
+                title = validated_data.get('title'),
+            )
+
+        return new
 
 
 
