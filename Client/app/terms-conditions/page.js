@@ -1,6 +1,6 @@
 
 
-export const generateMetadata = async({params}) => {
+export const generateMetadata = async() => {
 
   return {
     title: `Terms and Conditions | Global Computer (BD)` || `Global Computer (BD)`,

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import apiFetch from "@/lib/apiFetch"
 
 export const useGeneralGET = () => {
 
@@ -17,7 +18,7 @@ export const useGeneralGET = () => {
                 headerOpt.append('Authorization', `Token ${token}`)
             }
 
-            const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/${auth ? `auth` : `api`}/${process.env.NEXT_PUBLIC_API_VERSION}/${name}/${id ? id : ''}` 
+            const res = await apiFetch(process.env.NEXT_PUBLIC_API_URL + `/${auth ? `auth` : `api`}/${process.env.NEXT_PUBLIC_API_VERSION}/${name}/${id ? id : ''}` 
                 + `${order ? `?ordering=${order}` : ''}` 
                 + `${page ? `${order ? '&' : '?'}page=${page}` : ''}` 
                 + `${size ? `${order || page ? '&' : '?'}size=${size}` : ''}` 

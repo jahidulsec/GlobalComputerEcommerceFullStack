@@ -4,7 +4,8 @@ import NoPage from "@/utilities/NoPage"
 import { toTitleCase } from "@/utilities/toTitleCase"
 
 
-export const generateMetadata = async({params}) => {
+export const generateMetadata = async(props) => {
+  const params = await props.params
 
   const defaultDesc = 'Global Computer BD is one of the reliable computer, laptop, desktop & component retail shop in Bangladesh'
 
@@ -39,7 +40,9 @@ export const generateMetadata = async({params}) => {
 } 
 
 
-const page = async({params, searchParams}) => {
+const page = async(props) => {
+  const params = await props.params
+  const searchParams = await props.searchParams
   return (
     <>
       {(params.name === 'featured' || params.name === 'trending' || params.name === 'menu' || params.name === 'category' || params.name === 'search' ) ?

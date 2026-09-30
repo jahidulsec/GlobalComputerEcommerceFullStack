@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react"
+import apiFetch from "@/lib/apiFetch"
 
 export const useSearchQuery = () => {
 
@@ -49,7 +50,7 @@ export const useSearchQuery = () => {
                 url += `&size=${size}&page=${page}&ordering=${ordering ? ordering : ``}&min_price=${min_price ? min_price : ``}&max_price=${max_price ? max_price : ``}`
             } 
 
-            await fetch( url, 
+            await apiFetch( url,
                 {
                     method: 'GET',
                     headers: headerOpt,

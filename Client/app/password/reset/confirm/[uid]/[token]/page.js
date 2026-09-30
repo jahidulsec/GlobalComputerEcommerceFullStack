@@ -6,7 +6,8 @@ export const metadata = {
     title: 'Create New Password | Global Computer (BD)'
 }
 
-const ConfirmPassword = async({params}) => {
+const ConfirmPassword = async(props) => {
+  const params = await props.params
   return (
     <section className="reset-page">
         <div className="container flexcenter">

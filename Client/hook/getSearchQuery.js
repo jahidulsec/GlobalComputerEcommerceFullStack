@@ -1,3 +1,5 @@
+import apiFetch from "@/lib/apiFetch"
+
 export default async function getSearchQuery ({
     name, field, field_cat, field_brand, 
     field_cat_query, search_query, size, page,
@@ -36,7 +38,7 @@ export default async function getSearchQuery ({
     url += `&size=${size}&page=${page}&ordering=${ordering ? ordering : ``}&min_price=${min_price ? min_price : ``}&max_price=${max_price ? max_price : ``}&is_stock=${status ? status :''}`
    }
 
-    const res = await fetch( url, 
+    const res = await apiFetch( url,
         {
             method: 'GET',
             headers: headerOpt,
