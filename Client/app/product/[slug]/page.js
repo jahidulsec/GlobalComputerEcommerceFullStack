@@ -5,7 +5,8 @@ import getGeneralGET from "@/hook/getGeneralGET"
 import Head from "next/head"
 
 
-export const generateMetadata = async({params}) => {
+export const generateMetadata = async(props) => {
+  const params = await props.params
   const product = await getGeneralGET({name: 'product', id: params.slug})
 
   return {
@@ -47,8 +48,8 @@ export const generateMetadata = async({params}) => {
 
 
 
-const page = async({params}) => {
-
+const page = async(props) => {
+  const params = await props.params
   const product = await getGeneralGET({name: 'product', id: params.slug})
 
 

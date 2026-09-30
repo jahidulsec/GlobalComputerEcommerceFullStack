@@ -5,7 +5,7 @@ import Link from 'next/link';
 const DptMenuHome = async() => {
     
     
-    const data = await getGeneralGET({name: 'side-menu'})
+    const data = await getGeneralGET({name: 'category'})
 
 
   return (
@@ -16,13 +16,15 @@ const DptMenuHome = async() => {
 
                 {
                     
-                    data.map((cat) => (
+                    data
+                    .filter(item => (item.parent_category == null))
+                    .map((cat) => (
                         <li 
                             className='menu'
                             key={cat.id}
                         >
                             <Link href={`/menu/${cat.slug}`}>
-                                <div className="icon-large"><i className={`ri-${cat.logo}`}></i></div>
+                                <div className="icon-large"><i className={`ri-${cat?.logo}`}></i></div>
                                     {cat.title} 
                             </Link>
                         </li>

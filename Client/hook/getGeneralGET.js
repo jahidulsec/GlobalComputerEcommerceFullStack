@@ -1,3 +1,5 @@
+import apiFetch from "@/lib/apiFetch"
+
 export default async function getGeneralGET ({name, id, order, page, size, category_slug, token, status, offered, featured, product_slug, side_menu_slug, category_id, auth, brand_slug, display_big, min_price, max_price, search, order_status}) {
     
     const headerOpt = new Headers();
@@ -6,7 +8,7 @@ export default async function getGeneralGET ({name, id, order, page, size, categ
         headerOpt.append('Authorization', `Token ${token}`)
     }
     
-    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/${auth ? `auth` : `api`}/${process.env.NEXT_PUBLIC_API_VERSION}/${name}/${id ? id : ''}` 
+    const res = await apiFetch(process.env.NEXT_PUBLIC_API_URL + `/${auth ? `auth` : `api`}/${process.env.NEXT_PUBLIC_API_VERSION}/${name}/${id ? id : ''}` 
         + `${order ? `?ordering=${order}` : ''}` 
         + `${page ? `${order ? '&' : '?'}page=${page}` : ''}` 
         + `${size ? `${order || page ? '&' : '?'}size=${size}` : ''}` 

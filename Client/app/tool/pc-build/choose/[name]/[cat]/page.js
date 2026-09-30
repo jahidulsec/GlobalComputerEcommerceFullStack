@@ -1,7 +1,9 @@
 import PCBuildCatPage from "@/components/pc build page/PCBuildCatPage"
 import { PCBuildCatSSR } from "@/components/pc build page/PCBuildCatSSR"
 
-const page = ({params, searchParams}) => {
+const page = async(props) => {
+  const params = await props.params
+  const searchParams = await props.searchParams
   return (
  
     <PCBuildCatPage params={params} >
